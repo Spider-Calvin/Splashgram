@@ -1,0 +1,13 @@
+export const arrowParens = 'avoid';
+export const bracketSameLine = true;
+export const bracketSpacing = true;
+export const singleQuote = true;
+export const trailingComma = 'all';
+export const semi = true;
+export const tabWidth = 2;
+export const useTabs = true;
+export const jsxSingleQuote = true;
+export const proseWrap = 'preserve';
+export const printWidth = 100;
+export const htmlWhitespaceSensitivity = 'css';
+export const plugins = ['prettier-plugin-tailwindcss'];
