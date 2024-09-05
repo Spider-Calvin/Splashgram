@@ -8,3 +8,4 @@ export { default as EditPost } from "./edit-post";
 export { default as PostDetails } from "./post-details";
 export { default as UpdateProfile } from "./update-profile";
 export { default as AllUsers } from "./all-users";
+export { default as LikedPosts } from "./liked-posts";

@@ -55,22 +55,20 @@ export const useSignOutAccount = () => {
 // POST QUERIES
 // ============================================================
 
-// export const useGetPosts = () => {
-//   return useInfiniteQuery({
-//     queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
-//     queryFn: getInfinitePosts as any,
-//     getNextPageParam: (lastPage: any) => {
-//       // If there's no data, there are no more pages.
-//       if (lastPage && lastPage.documents.length === 0) {
-//         return null;
-//       }
-
-//       // Use the $id of the last document as the cursor.
-//       const lastId = lastPage.documents[lastPage.documents.length - 1].$id;
-//       return lastId;
-//     },
-//   });
-// };
+export const useGetPosts = () => {
+  return useInfiniteQuery({
+    queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
+    queryFn: ({ pageParam = 0 }) => getInfinitePosts({ pageParam }), // Assuming 0 is your starting point
+    getNextPageParam: (lastPage: any) => {
+      if (!lastPage || lastPage.documents.length === 0) {
+        return null; // No more pages
+      }
+      const lastId = lastPage.documents[lastPage.documents.length - 1].$id;
+      return lastId;
+    },
+    initialPageParam: 0, // This is required and should be the starting page param
+  });
+};
 
 export const useSearchPosts = (searchTerm: string) => {
   return useQuery({
